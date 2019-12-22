@@ -1,0 +1,23 @@
+//Html代码
+<div>
+      <canvas id="canvas"></canvas>
+      <canvas id="snow"></canvas>
+
+      <div class="am-g" style="position: fixed; bottom:0px;">
+          <div class="am-u-sm-12">
+              <div style="z-index: 9999" id="player" class="aplayer">
+              </div>
+          </div>
+      </div>
+  </div>
+//CSS代码
+ canvas{
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+      }
+//引入JS
+<script src="~/Content/assets/js/jquery.min.js"></script>   
+  <script src="~/Scripts/Blog/universe.js"></script><!--旋转背景-->
+  <script src="~/Scripts/Blog/Fireworks.js"></script><!--点击放烟花-->
