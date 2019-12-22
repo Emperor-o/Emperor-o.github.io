@@ -1,6 +1,66 @@
-<p>hello 大家好</p>
-<p>我是渣渣辉</p>
-<p>很高兴你来到这里</p>
-<ul>
-  <li> <a href = "http://www.baidu.com">我的 </a> </li>
-</ul>
+//<p>hello 大家好</p>
+//<p>我是渣渣辉</p>
+//<p>很高兴你来到这里</p>
+//<ul>
+//  <li> <a href = "http://www.baidu.com">我的 </a> </li>
+//</ul>
+
+
+
+
+//Html代码:
+body>
+  <!--回到顶部-->
+  <div id="back-to-top" class="red" data-scroll="body" style="top:-46px;color:red;">回到顶部 </div>
+<!--撑开网页代码-->
+  <p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p>
+  <p>hello</p><p>hello</p><p>hello</p>
+  <p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p>
+      <p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p>
+      <p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p><p>hello</p>
+<!--以上是撑开网页代码-->
+//CSS样式
+#back-to-top{          
+           position:fixed;
+           right:50px;
+           z-index:9;
+           width:70px;
+           height:900px;
+          background:url('/Content/Images/scroll.png');
+           transition:0.5s;  
+           cursor:pointer;     
+      }
+//JS部分:
+  <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript">
+      window.onload = function () {
+          // 利用 data-scroll 属性，滚动到任意 dom 元素
+          $.scrollto = function (scrolldom, scrolltime) {
+              $(scrolldom).click(function () {
+                  var scrolltodom =$(this).attr("data-scroll");
+                  $(this).addClass("active").siblings().removeClass("active");
+                  $('html, body').animate({
+                      scrollTop: $(scrolltodom).offset().top
+                  }, scrolltime);
+                  return false;
+              });
+          };
+          //判断位置控制 返回顶部的显隐
+          if ($(window).width() > 800) {//如果窗体的宽度大于800
+              var backTo = $("#back-to-top");//获取back-to-top对象
+              var backHeight = $(window).height() - 980 + 'px';//让window高度减980
+              $(window).scroll(function () {
+                  if ($(window).scrollTop()> 700 && backTo.css('top') === '-900px') {
+                     backTo.css('top', backHeight);
+                  }
+                  else if ($(window).scrollTop()<= 700 && backTo.css('top') !== '-900px') {
+                     backTo.css('top', '-900px');
+                  }
+              });
+
+          }
+          //启用
+          $.scrollto("#back-to-top", 800);
+
+      }
+  </script>
